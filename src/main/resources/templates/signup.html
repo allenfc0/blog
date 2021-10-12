@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
@@ -5,9 +7,19 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns="http://www.w3.org/1999/html">
+
+<!--
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
       http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
       http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      xmlns="http://www.w3.org/1999/html">
+      xmlns="http://www.w3.org/1999/html"-->
+
 <head>
     <meta charset="UTF-8">
 
@@ -23,14 +35,13 @@
 
 </head>
 <body>
-
-    <header>
-        <p><a href="signup" onchange="location = this.value">Sign Up</a></p>
-        <p><a href="login" >Log In</a></p>
-    </header>
-
-    <h1>This is the home</h1>
-
+    <form id="register" th:action="@{/process-new-user}" method="post">
+        <input type="text" name="name" placeholder="Enter name" required autofocus>
+        <input type="date" name="dob" required>
+        <input type="text" name="email" placeholder="Enter email" required>
+        <input type="password" name="password" placeholder="Enter password" required>
+        <input type="submit" value="Submit">
+    </form>
 
 </body>
 </html>
